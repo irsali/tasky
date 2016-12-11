@@ -1,0 +1,8 @@
+﻿.activity-info a:hover {
+    text-decoration: none;
+}
+
+.activity-info-due-date
+{
+    color: #0275d8;
+}

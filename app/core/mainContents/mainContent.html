@@ -1,0 +1,22 @@
+﻿<div class="row after-gap-20">
+    <div class="col-md-12 text-center">
+        <activity-info-group [groupName]="siblingsDisplayName" [orientation]="'deck'" [activityInfoList]="getSublings()"></activity-info-group>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <activity-info-group [groupName]="childrenDisplayName" [orientation]="'columns'" [activityInfoList]="getChildren()"></activity-info-group>
+    </div>
+    <div class="col-md-8">
+        <div class="activity-area">
+            <selected-activity [activityInfo]="getActivityInfo()"></selected-activity>
+        </div>
+        <br />
+        <div class="activity-area">
+            <activity-form></activity-form>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <activity-info-group [groupName]="ancestorsDisplayName" [orientation]="'columns'" [activityInfoList]="getAncestors()"></activity-info-group>
+    </div>
+</div>

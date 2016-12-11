@@ -1,0 +1,12 @@
+﻿div.activity-info-container {
+	padding: 10px;
+}
+
+div.activity-info {
+	background: #555;
+	cursor: pointer;
+}
+
+	div.activity-info:hover, div.activity-info:focus {
+		background: #333;
+	}

@@ -1,0 +1,86 @@
+﻿<div class="container">
+    <div [hidden]="submitted">
+        <h2>New Activity</h2>
+        <form (ngSubmit)="onSubmit(myActivityForm); " #myActivityForm="ngForm">
+            <div class="form-group">
+                <label for="name">Activity Name</label>
+                <input type="text" class="form-control" id="name"
+                       required
+                       #Title="ngModel"
+                       [(ngModel)]="activityInfo.Title" placeholder="Activity Name" name="name">
+
+                <div [hidden]="Title.valid || Title.pristine"
+                     class="alert alert-danger">
+                    Activity Name is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Activity Description</label>
+                <input type="text" class="form-control" id="description"
+                       required
+                       #Description="ngModel"
+                       [(ngModel)]="activityInfo.Description" placeholder="Activity Description" name="description">
+
+                <div [hidden]="Description.valid || Description.pristine"
+                     class="alert alert-danger">
+                    Activity Name is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Due date</label>
+                <input type="date" class="form-control" id="dueDate"
+                       required
+                       #DueDate="ngModel"
+                       [(ngModel)]="activityInfo.DueDate" placeholder="Due date" name="dueDate">
+                    
+                <div [hidden]="DueDate.valid || DueDate.pristine"
+                     class="alert alert-danger">
+                    Activity Name is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Parent</label>
+                <select class="form-control" id="parentId" [(ngModel)]="activityInfo.ParentId" name="parentId"
+                        #ParentId="ngModel">
+                    <option *ngFor="let activity of activities" [value]="activity.Id">{{activity.Title}}</option>
+                </select>
+
+                <div [hidden]="ParentId.valid || ParentId.pristine"
+                     class="alert alert-danger">
+                    Activity Name is required
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-default" (click)="newActivity()">Cancel</button>
+            <button type="submit" class="btn btn-default" [disabled]="!myActivityForm.form.valid">Submit</button>
+        </form>
+    </div>
+
+    <div [hidden]="!submitted">
+        <h2>You have submitted the following:</h2>
+        <div class="row">
+            <div class="col-xs-3">Activity Name</div>
+            <div class="col-xs-9  pull-left">{{ activityInfo.Title }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Activity Description</div>
+            <div class="col-xs-9 pull-left">{{ activityInfo.Description }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Due date</div>
+            <div class="col-xs-9 pull-left">{{ activityInfo.DueDate }}</div>
+        </div>
+        <div class="row" *ngIf="activityInfo.ParentId">
+            <div class="col-xs-3">Parent</div>
+            <div class="col-xs-9 pull-left">{{ activityInfo.ParentId }}</div>
+        </div>
+        <br  />
+        <button type="button" class="btn btn-default" (click)="newActivity()">New Activity</button>
+    </div>
+
+</div>
+
+

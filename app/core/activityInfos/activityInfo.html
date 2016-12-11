@@ -1,0 +1,7 @@
+﻿<div class="activity-info">
+        <span class="activity-info-heading text-info">{{activityInfo.Title}}</span>
+        <span class="horizontal-line"></span>
+        <span *ngIf="activityInfo.DueDate" class="activity-info-due-date text-right">
+            <span><small>{{activityInfo.DueDate | date}}</small></span>
+        </span>
+</div>

@@ -1,0 +1,21 @@
+﻿<div class="container" *ngIf="activityInfo">
+    <div class="form-group">
+        <h2>Selected Activity Detail</h2>
+        <div class="row">
+            <div class="col-xs-3">Activity Name</div>
+            <div class="col-xs-9  pull-left">{{ activityInfo.Title }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Activity Description</div>
+            <div class="col-xs-9 pull-left">{{ activityInfo.Description }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Due date</div>
+            <div class="col-xs-9 pull-left">{{ activityInfo.DueDate }}</div>
+        </div>
+        <div class="row" *ngIf="activityInfo.ParentId">
+            <div class="col-xs-3">Parent</div>
+            <div class="col-xs-9 pull-left">{{ getName( activityInfo.ParentId ) }}</div>
+        </div>
+    </div>
+</div>

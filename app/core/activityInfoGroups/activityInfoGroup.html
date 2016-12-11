@@ -1,0 +1,23 @@
+﻿<div class="card">
+	<div class="card-header bg-inverse">
+		{{groupName}} 
+	</div>
+	<div class="card-text activity-info-container" [ngSwitch]="orientation" style="{{orientation=='deck'?'overflow-x:scroll;':'overflow-y:scroll; max-height:400px;'}}">
+		<template [ngSwitchCase]="'deck'">			
+			<div class="card-deck-wrapper">
+				<div class="card-deck">
+					<div class="card card-inverse activity-info" *ngFor="let actInfo of activityInfoList" [routerLink]="['/home', actInfo.Id]">
+						<div class="card-block">
+							<activity-info [activityInfo]="actInfo"></activity-info>
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+		<template [ngSwitchCase]="'columns'">
+			<div class="card card-inverse card-block activity-info" *ngFor="let actInfo of activityInfoList" [routerLink]="['/home',actInfo.Id]">
+				<activity-info [activityInfo]="actInfo"></activity-info>
+			</div>
+		</template>
+	</div>
+</div>
