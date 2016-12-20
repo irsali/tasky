@@ -39,6 +39,6 @@
                 defaultExtension: 'js'
             }
         },
-         baseURL: '/tasky/'
+         baseURL: '/'
     });
 })(this);
